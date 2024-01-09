@@ -39,6 +39,17 @@ public class Client {
         String fileExtension = filePath.substring(filePath.lastIndexOf(".") + 1);
         // 发送到服务器
         this.socket.getOutputStream().write((this.id + " " + fileExtension + " " + encodedContent).getBytes());
+        // 提示文件接收中
+        logger.info("文件接收中");
+        // 接收服务器的消息
+        BufferedReader reader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+        String messageFromServer;
+        while ((messageFromServer = reader.readLine()) != null) {
+            logger.info(messageFromServer);
+            if ("文件接收完成".equals(messageFromServer)) {
+                break;
+            }
+        }
     }
 
     public void show(String filePath) {

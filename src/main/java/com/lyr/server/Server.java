@@ -55,6 +55,11 @@ public class Server {
         // 保存到当前目录下的以客户端ID命名的文件夹中
         Files.createDirectories(Paths.get("./" + id));
         Files.write(Paths.get("./" + id + "/receivedFile." + fileExtension), fileContent);
+        // 向客户端发送文件接收完成的消息
+        OutputStream outputStream = clientSocket.getOutputStream();
+        String message = "文件接收完成\n";
+        outputStream.write(message.getBytes());
+        outputStream.flush();
     }
 
     public static void main(String[] args) throws IOException {
