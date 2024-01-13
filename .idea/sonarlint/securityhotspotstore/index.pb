@@ -30,5 +30,3 @@ $src/main/java/com/lyr/pojo/User.java,f\9\f970c7bd9951f29590a4d613ad2d065828da8
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-G
-11680/receivedFile.json,6\8\6884c2dbcbe89fdb60cc5f90cccc1cdff6b4118b
